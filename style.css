@@ -1,0 +1,157 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+} /* changes how padding is calculated so that its within a
+    width instead of adding on to total width */
+
+:root {
+    --ff-primary: 'Source Sans Pro', sans-serif;
+    --ff-secondary: 'Source Code Pro', monospace;
+    
+    --fw-reg: 300;
+    --fw-bold: 900;
+    
+    --clr-light: #fff;
+    --clr-dark: #1e1065;
+    --clr-accent: #d32444
+;
+    
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+
+    --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25);
+}
+
+@media (min-width: 800px) {
+    :root {
+        --fs-h1: 4.5rem;
+        --fs-h2: 3.75rem;
+        --fs-h3: 1.5rem;
+        --fs-body: 1.125rem;
+    }
+} /* media queries can help resize your images for larger screens */
+
+/* General styles */
+
+body {
+    background: var(--clr-light);
+    color: var(--clr-dark);
+    margin:0;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* Typography */
+
+h1,
+h2,
+h3 {
+    line-height: 1.1;
+    margin: 0;
+}
+
+h1 { font-size: var(--fs-h1) }
+h2 { font-size: var(--fs-h2) }
+h3 { font-size: var(--fs-h3) }
+
+.section__title {
+    margin-bottom: .25em;
+}
+
+.section__title--intro {
+    font-weight: var(--fw-reg);
+}
+
+.section__title--intro strong {
+    display: block;
+}
+
+.section__subtitle {
+    margin: 0;
+    font-size: var(--fs-h3);
+}
+
+.section__subtitle--intro,
+.section__subtitle--about {
+    background: var(--clr-accent);
+    padding: .25em 1em;
+    font-family: var(--ff-secondary);
+    margin-left: 1em;
+}
+
+/*  Intro section  */
+
+.intro {
+    position: relative;
+    margin-top:  1em;
+}
+
+.intro_img {
+    box-shadow: var(--bs);
+}
+
+@media (min-width: 600px) {
+    .intro {
+        display: grid;
+        width: min-content;
+        margin: 0 auto;
+        grid-column-gap: 1em;
+        grid-template-areas: 
+            "img title"
+            "img subtitle";
+        grid-template-columns: min-content max-content;
+    }
+    
+    .intro__img {
+        grid-area: img;
+        min-width: 250px;
+        postion: relative;
+        z-index: 2;
+    }    
+    
+    .section__subtitle--intro {
+        align-self: start;
+        grid-column: -1 / 1;
+        grid-row: 2;
+        text-align: right;
+        position: relative;
+        left: -1.5em;
+        width: calc(100% + 1.5em);
+    }
+}
+
+.about-me {
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    text-align: center;
+    margin-top: 1em;
+}
+
+.section__title {
+    color: var(--clr-accent);
+    position: relative;
+}
+
+
+.why-me {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.why-i-fit {
+    position: relative;
+    text-align: center;
+}
+
+    
+ 
